@@ -8,13 +8,23 @@ const screen = {
                                                 <h1>${user.name ?? 'Não possui nome cadastrado'}</h1>
                                                 <p>${user.userName}</p>
                                                 <p>${user.bio ?? 'Não possui bio cadastrada'}</p>
-                                                <p>Seguidores: ${user.followers}</p>
-                                                <p>Seguindo: ${user.following}</p>
                                             </div>
+                                        </div>
+                                        <div class="seguidores">
+                                            <p>👥Seguidores: ${user.followers}</p>
+                                            <p>👥Seguindo: ${user.following}</p>
                                         </div>`
 
         let repositoriesItens = ''
-        user.repositories.forEach(repo => repositoriesItens += `<li><a href="${repo.html_url}" target="_blanck">${repo.name}</a></li>`)
+        user.repositories.forEach(repo => repositoriesItens += `<li>
+                                                                    <a href="${repo.html_url}" target="_blanck">${repo.name}
+                                                                    <div class="info-repo">
+                                                                    <span class="info-repo-itens">🍴${repo.forks}</span>
+                                                                    <span class="info-repo-itens">⭐${repo.stargazers_count}</span>
+                                                                    <span class="info-repo-itens">👀${repo.watchers}</span>
+                                                                    <span class="info-repo-itens">💻${repo.language}</span>
+                                                                    </div>
+                                                                    </a></li>`)
 
         if(user.repositories.length > 0){
             this.userProfile.innerHTML += `<div class="repositories section">
