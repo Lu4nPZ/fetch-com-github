@@ -6,3 +6,4 @@ Este projeto foi passado no curso DevQuest para praticarmos o JavaScript avança
 - HTML
 - CSS
 - JAVASCRIPT
+- API
